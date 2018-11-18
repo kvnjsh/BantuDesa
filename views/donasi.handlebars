@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card strpied-tabled-with-hover">
+            <div class="card-header ">
+                <h4 class="card-title">Daftar Peserta Sayembara</h4>
+                <p class="card-category">Here is a subtitle for this table</p>
+            </div>
+
+            <div class="card-body">
+              <h2 class="page-header">Register</h2>
+              {{#if errors}}
+                {{#each errors}}
+                  <div class="alert alert-danger">{{msg}}</div>
+                {{/each}}
+              {{/if}}
+              <form method="post" enctype="multipart/form-data" action="/dashboard/donasi">
+                <div class="form-group">
+                  <label>Input Gambar</label>
+                  <br>
+                  <input type="file" name="input_pic" accept="image/*" style="padding-left: 100px;">
+                </div>
+                <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" class="form-control" placeholder="Name" name="word">
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" class="form-control" placeholder="Email" name="email">
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" class="form-control" placeholder="Password" name="password">
+                </div>
+                <div class="form-group">
+                  <label>Confirm Password</label>
+                  <input type="password" class="form-control" placeholder="Password" name="password2">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>

@@ -1,0 +1,44 @@
+<div class="content" alt="" data-aos="fade-right" data-aos-duration="1800">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card strpied-tabled-with-hover">
+                    <div class="card-header ">
+                        <h4 class="card-title">Daftar Artikel</h4>
+                        <p class="card-category">Berikut adalah daftar artikel yang Anda buat :</p>
+                    </div>
+                    <div class="card-body table-full-width table-responsive" >
+                        {{#ifCond message '==' 'notfound'}}
+                            <p>Belum ada Artikel yang Anda buat.</p>
+                        {{/ifCond}}
+                        {{#if articles}}
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <th>No</th>
+                                <th>Judul</th>
+                                <th>Topik</th>
+                                <th>Deskripsi Singkat</th>
+                                <th>Isian</th>
+                                <th>Operasi</th>
+                            </thead>
+                            <tbody>
+                            {{#each articles as |article|}}
+                                <tr>
+                                    <td>{{inc @index}}</td>
+                                    <td>{{article.[judul_artikel]}}</td>
+                                    <td>{{article.[topik]}}</td>
+                                    <td>{{substr article.[deskripsi_singkat] 50}}</td>
+                                    <td>{{substr article.[isi_artikel] 70}}</td>
+                                    <td><a href="/dashboard/editArticle/{{article.id}}">Edit</a><br>Delete</td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BantuDESA</title>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" />
+	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="/assets/css/style-login.css" />
+</head>
+
+<body class="text-center">
+	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand"><a class="nav-link" href="/">BantuDESA</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            {{#if user}}
+              <a class="nav-link" href="/dashboard">Dashboard</a>
+              <a class="nav-link" href="/login/logout">Logout</a>
+            {{else}}
+              <a class="nav-link" href="/login">Login</a>
+              <a class="nav-link" href="/login/register">Register</a>
+            {{/if}}
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        {{#if success_msg}}
+          <div class='alert alert-success'>{{success_msg}}</div>
+        {{/if}}
+
+        {{#if error_msg}}
+          <div class='alert alert-danger'>{{error_msg}}</div>
+        {{/if}}
+
+        {{#if error}}
+          <div class='alert alert-danger'>{{error}}</div>
+        {{/if}}
+
+        <h1 class="cover-heading">{{{body}}}</h1>
+
+
+
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>BantuDESA, <a href="#">2018</a>.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src='/bower_components/jquery/dist/jquery.js'></script>
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/assets/js/scripts.js"></script>
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <script type="text/javascript">
+        AOS.init({
+            duration: 1200,
+        })
+        $("#selengkapnya").click(function () {
+            $('html, body').animate({
+                scrollTop: $("#acara").offset().top
+            }, 1000);
+        });
+  </script>
+</body>
+
+</html>

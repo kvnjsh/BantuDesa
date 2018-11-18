@@ -1,0 +1,207 @@
+var express = require('express');
+var router = express.Router();
+var fs = require('fs');
+var path = require('path');
+var Article = require('../models/article');
+var Sayembara = require('../models/sayembara');
+
+var multer = require('multer');
+var upload = multer({ dest: '/assets/img/'});
+var Busboy = require('busboy');
+var busboy = require('connect-busboy');
+
+router.use(busboy());
+
+// Login Layout
+router.all('/*', function (req, res, next) {
+    req.app.locals.layout = 'layout-dashboard'; // set your layout here
+    next(); // pass control to the next handler
+});
+
+// Get Sayembara Page
+router.get('/', ensureAuthenticated, function(req, res){
+	res.render('dashboard/index');
+});
+
+// Get Profil desa Page
+router.get('/profildesa', ensureAuthenticated, function(req, res){
+	res.render('profildesa');
+});
+
+// Get Donasi Page
+router.get('/donasi', function(req, res){
+	res.render('donasi');
+});
+
+// Get Sayembara Page
+router.get('/index', ensureAuthenticated, function(req, res){
+	res.render('dashboard/index');
+});
+
+// Get BuatArtikel Page
+router.get('/createArticle', ensureAuthenticated, function(req, res){
+	res.render('dashboard/createArticle');
+});
+
+// Post BuatArtikel Page
+router.post('/createArticle', ensureAuthenticated, function(req, res){
+	var judul_artikel = req.body.judul_artikel;
+	var isi_artikel = req.body.isi_artikel;
+	var deskripsi_singkat = req.body.deskripsi_singkat;
+	var topik = req.body.topik;
+	// var dt = dateTime.create();
+	// var tanggal_buat = dt.format('d-m-Y');
+	var id_user = req.user.id;
+	if (req.body.comment=='true')
+		var can_comment = 1;
+	else
+		var can_comment = 0;
+
+	// Upload Image
+	var path = '/../public/images/articles/',
+		foto = '';
+	var fstream, filepath;
+	// Upload file
+	
+	req.busboy.on('file', function(fieldname, file, name, encoding, mimetype) {
+		filepath = __dirname + path + name;
+		fstream = fs.createWriteStream(filepath);
+		console.log('Uploading: ' + filepath);
+		file.pipe(fstream);
+		var foto = path + name;
+		
+    });
+    // req.busboy.on('field', function(fieldname, val) {
+    // 	console.log(fieldname, val);
+   	// });
+   	req.busboy.on('finish', function() {
+   		console.log('Testing');
+		req.checkBody('judul_artikel', 'Judul artikel is required').notEmpty();
+		req.checkBody('deskripsi_singkat', 'Deskripsi singkat is required').notEmpty();
+		req.checkBody('isi_artikel', 'Isi artikel is required').notEmpty();
+		req.checkBody('topik', 'Topik is required').notEmpty();
+		var errors = req.validationErrors();
+
+		
+		console.log(req.body.topik)
+		console.log(foto);
+
+		if(errors){
+			res.render('dashboard/createArticle',{
+				errors:errors
+			});
+		} else {
+			var newArticle = new Article({
+				judul_artikel: judul_artikel,
+				isi_artikel: isi_artikel,
+				deskripsi_singkat: deskripsi_singkat,
+				topik: topik,
+				foto: foto,
+				can_comment: can_comment,
+				id_user: id_user
+			});
+
+			Article.createArticle(newArticle, function(err, user){
+				if(err) throw err;
+				//console.log(user);
+			});
+
+			res.render('dashboard/createArticle', {
+				success_msg: 'You added a new Article! Please wait for confirmation from the Administrator!'
+			});
+		}
+   	});
+    req.pipe(req.busboy);
+
+});
+
+// Get userProfile Page
+router.get('/userProfile', ensureAuthenticated, function(req, res){
+	res.render('dashboard/userProfile');
+});
+
+function ensureAuthenticated(req, res, next){
+	if(req.isAuthenticated()){
+		if(req.user.usercode != 1)
+			return next();
+		else {
+			req.flash('error_msg', "dashboard");
+
+			res.redirect(lastUrl);
+		}
+	} else {
+		//req.flash('error_msg', "You are not logged in");
+		res.redirect('/login');
+	}
+}
+
+// Get BuatArtikel Page
+router.get('/createSayembara', ensureAuthenticated, function(req, res){
+	res.render('dashboard/createSayembara');
+});
+
+// Post BuatArtikel Page
+router.post('/createSayembara', ensureAuthenticated, function(req, res){
+	var judul_sayembara = req.body.judul_sayembara;
+	var topik = req.body.topik;
+	var isi_sayembara = req.body.isi_sayembara;
+	var deskripsi_singkat = req.body.deskripsi_singkat;
+	//var foto_sayembara = null;
+	var id_desa = req.user.id_desa;
+	var id_user = req.user.id;
+
+	// Upload Image
+	var path = '/uploads/images',
+		filename = '';
+
+	// Upload file
+    req.busboy.on('artImages', function(field, file, name){
+        filename = name;
+        file.pipe(fs.createWriteStream(path + name)); // Save to path 
+    });
+
+    // Send result back
+    // req.busboy.on('finish', function(field){
+    res.json({
+        status: 'ok',
+        file: filename
+    });
+    // });
+	var foto_sayembara = path + '/' + filename;
+	console.log(foto_sayembara);
+
+	req.checkBody('judul_sayembara', 'Judul sayembara is required').notEmpty();
+	req.checkBody('topik', 'Topik is required').notEmpty();
+	req.checkBody('isi_sayembara', 'Isi sayembara is required').notEmpty();
+	req.checkBody('deskripsi_singkat', 'Deskripsi singkat is required').notEmpty();
+
+	var errors = req.validationErrors();
+
+	if(errors){
+		res.render('dashboard/createSayembara',{
+			errors:errors
+		});
+	} else {
+		var newSayembara = new Sayembara({
+			judul_sayembara: judul_sayembara,
+			topik: topik,
+			deskripsi_singkat: deskripsi_singkat,
+			isi_sayembara: isi_sayembara,
+			foto_sayembara: foto_sayembara,
+			id_desa: id_desa,
+			//tanggal_selesai: tanggal_selesai,
+			id_user: id_user
+		});
+
+		Sayembara.createSayembara(newSayembara, function(err, user){
+			if(err) throw err;
+			//console.log(user);
+		});
+
+		res.render('dashboard/createSayembara', {
+			success_msg: 'You added a new Sayembara! Please wait for confirmation from the Administrator.'
+		});
+	}
+});
+
+module.exports = router;

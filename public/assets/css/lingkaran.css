@@ -1,0 +1,47 @@
+.atas,
+.bawah {
+  height: 45px;
+  width: 45px * 2;
+}
+
+.kanan,
+.kiri {
+  height: 45px * 2;
+  width: 45px;
+}
+
+.atas {
+  border-atas-kiri-radius: 45px * 2;
+  border-atas-kanan-radius: 45px * 2;
+}
+
+.kanan {
+  border-bawah-kanan-radius: 45px * 2;
+  border-atas-kanan-radius: 45px * 2;
+}
+
+.bawah {
+  border-bawah-kiri-radius: 45px * 2;
+  border-bawah-kanan-radius: 45px * 2;
+}
+
+.kiri {
+  border-bawah-kiri-radius: 45px * 2;
+  border-atas-kiri-radius: 45px * 2;
+}
+
+.rotate {
+  animation: 1s linear infinite rotate;
+  position: relative;
+  atas: 45px * -1;
+  transform-origin: 50% 100%;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}

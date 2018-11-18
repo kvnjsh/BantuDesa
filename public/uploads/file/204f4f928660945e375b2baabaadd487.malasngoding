@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)https://www.malasngoding.com/lab/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style id="stndz-style">div[class*="item-container-obpd"], a[data-redirect*="paid.outbrain.com"], a[onmousedown*="paid.outbrain.com"] { display: none !important; } a div[class*="item-container-ad"] { height: 0px !important; overflow: hidden !important; position: absolute !important; } div[data-item-syndicated="true"] { display: none !important; } .grv_is_sponsored { display: none !important; } .zergnet-widget-related { display: none !important; } </style>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laboratorium | Experiment code | www.malasngoding.com</title>
+
+
+    <meta name="keywords" content="Laboratorium www.malasngoding.com, Code Editor Online, Belajar pemrograman web, mobile, try it editor www.malasngoding.com, tutorial HTML, tutorial CSS,  tutorial membuat aplikasi berbasis web">    
+  
+    <link rel="icon" href="http://www.malasngoding.com/wp-content/uploads/2016/12/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://www.malasngoding.com/wp-content/uploads/2016/12/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="./Laboratorium _ Experiment code _ www.malasngoding.com_files/editor.css">
+    <script type="text/javascript" src="./Laboratorium _ Experiment code _ www.malasngoding.com_files/editor.js.download"></script>  
+
+    <!-- Global stylesheets -->
+    <link href="./Laboratorium _ Experiment code _ www.malasngoding.com_files/css" rel="stylesheet" type="text/css">
+    <link href="./Laboratorium _ Experiment code _ www.malasngoding.com_files/styles.css" rel="stylesheet" type="text/css">
+    <link href="./Laboratorium _ Experiment code _ www.malasngoding.com_files/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="./Laboratorium _ Experiment code _ www.malasngoding.com_files/core.css" rel="stylesheet" type="text/css">
+    <link href="./Laboratorium _ Experiment code _ www.malasngoding.com_files/components.css" rel="stylesheet" type="text/css">
+    <link href="./Laboratorium _ Experiment code _ www.malasngoding.com_files/colors.css" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
+
+    <!-- Core JS files -->
+
+    <script type="text/javascript" src="./Laboratorium _ Experiment code _ www.malasngoding.com_files/jquery.min.js.download"></script>
+    <script type="text/javascript" src="./Laboratorium _ Experiment code _ www.malasngoding.com_files/bootstrap.min.js.download"></script>
+    <script type="text/javascript" src="./Laboratorium _ Experiment code _ www.malasngoding.com_files/nicescroll.min.js.download"></script>
+    <script type="text/javascript" src="./Laboratorium _ Experiment code _ www.malasngoding.com_files/drilldown.js.download"></script>
+    <!-- /core JS files -->
+
+    <!-- Theme JS files -->
+    <script type="text/javascript" src="./Laboratorium _ Experiment code _ www.malasngoding.com_files/app.js.download"></script>
+    <!-- /theme JS files -->
+
+</head>
+
+<body class="navbar-bottom">
+
+    <div class="page-header page-header-inverse">
+
+        <!-- Main navbar -->
+        <div class="navbar navbar-inverse navbar-transparnt">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="http://www.malasngoding.com/lab/"><i class="icon-circle-code"></i> Laboratorium</a>
+
+                <ul class="nav navbar-nav pull-right visible-xs-block">
+                    <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-grid3"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="navbar-collapse collapse" id="navbar-mobile">
+                <p class="navbar-text">|</p>             
+                <p class="navbar-text">Time to experiment with code. lets make something awesome !</p>             
+
+                <div class="navbar-right">               
+                    <ul class="nav navbar-nav">                        
+                        <li><a href="http://www.malasngoding.com/">Back to website</a></li>                      
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /main navbar -->
+    </div>
+
+    <div class="page-container" style="min-height:493px">
+        <div class="container-fluid no-padding">          
+
+           <div class="panel panel-flat">
+            <div class="panel-heading">
+                <h6 class="panel-title">Source Code<a class="heading-elements-toggle"><i class="icon-more"></i></a><a class="heading-elements-toggle"><i class="icon-more"></i></a></h6>
+                <div class="heading-elements">
+                    <ul class="icons-list">
+                        <li><a data-action="collapse"></a></li>                                                
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <div class="tabbable">
+                    <ul class="nav nav-tabs nav-tabs-bottom">
+                        <li class="active"><a href="https://www.malasngoding.com/lab/#bottom-tab1" data-toggle="tab" aria-expanded="true">HTML</a></li>
+                        <li class=""><a href="https://www.malasngoding.com/lab/#bottom-tab2" data-toggle="tab" aria-expanded="false">CSS</a></li>                      
+                        <li class=""><a href="https://www.malasngoding.com/lab/#bottom-tab3" data-toggle="tab" aria-expanded="false">JS</a></li>                      
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="bottom-tab1">
+                            <div id="html" class="editor" contenteditable=""><div>&lt;!doctype html&gt;</div><div>&lt;html&gt;</div><div><br></div><div>&lt;div id= "besar"&gt;</div><div>&lt;div id= "container"&gt;</div>yamete kudasai&nbsp;<span style="font-size: 13.3333px;">neeee</span><div>&lt;/div&gt;</div><div>&lt;/div&gt;</div><div>&lt;/html&gt;</div></div>
+                        </div>
+
+                        <div class="tab-pane" id="bottom-tab2">
+                         <div id="css" class="editor" contenteditable="">#container {<div>border-radius : 5px;</div><div><div>background: #D0D0D0;</div><div>height : 30px;</div><div>width: 150px;</div><div>}</div></div><div><br></div><div>#besar {</div><div>border : 10<span style="font-size: 10pt;">px;</span></div><div>width : 1000px;</div><div>height : 70px;</div><div>background : #DFDFDF;</div><div>}</div><div><br></div><div><br></div></div>
+                     </div>
+
+                     <div class="tab-pane" id="bottom-tab3">
+                         <div id="js" class="editor" contenteditable=""></div>
+                     </div>                       
+                 </div>
+             </div>
+         </div>
+
+     </div>   
+
+     <div class="panel panel-flat">
+        <div class="panel-heading">
+            <h6 class="panel-title">Result</h6>           
+        </div>
+
+        <div class="panel-body">
+            <iframe id="output" class="output" __idm_frm__="27" src="./Laboratorium _ Experiment code _ www.malasngoding.com_files/saved_resource.html"></iframe>         
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div class="navbar navbar-default navbar-fixed-bottom footer">
+    <ul class="nav navbar-nav visible-xs-block">
+        <li><a class="text-center collapsed" data-toggle="collapse" data-target="#footer"><i class="icon-circle-up2"></i></a></li>
+    </ul>
+
+    <div class="navbar-collapse collapse" id="footer">
+        <div class="navbar-text">
+            © 2017. Laboratorium by <a href="http://www.malasngoding.com/" class="navbar-link" target="_blank">www.malasngoding.com</a>
+        </div>
+
+        <div class="navbar-right">
+            <ul class="nav navbar-nav">
+                <li><a href="http://www.malasngoding.com/">Tutorial</a></li>
+                <li><a href="http://www.malasngoding.com/lab/.php">Laboratorium</a></li>
+                <li><a href="http://shop.malasngoding.com/">Shop</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+</body></html>

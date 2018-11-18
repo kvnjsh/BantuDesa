@@ -1,0 +1,31 @@
+{
+  "name": "loginsystem",
+  "version": "1.0.0",
+  "description": "Simple Authentication",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "M Daffa Rangga P",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "cookie-parser": "^1.4.1",
+    "express": "*",
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "mongodb": "*",
+    "mongoose": "*",
+    "multer": "^1.3.0",
+    "mysql": "^2.16.0",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+    "python-shell": "^0.5.0"
+  }
+}
